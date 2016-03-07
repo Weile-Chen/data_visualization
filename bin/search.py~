@@ -1,0 +1,21 @@
+# !/usr/bin/python
+from pandas import DataFrame
+
+def search(path,frame):
+    i=0
+    attribution=[]
+    num = open(path,'r')
+
+    for client_num in num:
+        
+        while frame.values[i][1] != client_num[:7]:
+            i = i + 1
+            
+            if i > 56134:
+                i=-1
+                break
+         
+        if i != -1:
+             attribution.append(frame.values[i][2])              
+
+    return attribution
